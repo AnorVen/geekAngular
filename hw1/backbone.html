@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<!--<script src="http://backbonejs.org/backbone-min.js"></script>
+<script src="https://underscorejs.org/underscore-min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../vendor/backbone.js"></script>
+<script src="../vendor/underscore.js"></script>
+<section class="1">
+	<p>как тебя зовут</p>
+	<input type="text">
+</section>
+<section class="2">
+	<p>Введите дату своего ближайшего дня рождения</p>
+	<input type="date" >
+</section>
+<h1 class="show"></h1>
+
+<script>
+	var show = Backbone.Model.extend({
+    defaults: {
+      day : '2018-07-10T21:00:00.000Z'
+    },
+    initialize: function(){
+
+		}
+
+	})
+</script>
+
+</body>
+</html>

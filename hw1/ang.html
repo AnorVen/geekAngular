@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="123">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>-->
+<script src="../vendor/angular.min.js"></script>
+<div ng-controller="Controller">
+<section class="1">
+	<input type="text" ng-model="yourName" placeholder="Enter a name here">
+</section>
+<section class="2">
+	<input  ng-model="dataCheck" type="date" placeholder="Введите дату своего ближайшего дня рождения">
+</section>
+	{{dataCheck}}
+
+<h1 ng-show="(show && yourName.length > 3)">Поздравляю с днем рождения, {{yourName}}!</h1>
+</div>
+<script>
+  var mod = angular.module('123', [])
+    .controller('Controller', function($scope) {
+      var day ='2018-07-10T21:00:00.000Z';
+      $scope.show = function (a) {
+        if(a == day){
+          return true;
+				}
+      }
+    });
+</script>
+</body>
+</html>

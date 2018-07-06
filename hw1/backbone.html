@@ -8,28 +8,52 @@
 <!--<script src="http://backbonejs.org/backbone-min.js"></script>
 <script src="https://underscorejs.org/underscore-min.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="../vendor/backbone.js"></script>
 <script src="../vendor/underscore.js"></script>
+<script src="../vendor/backbone.js"></script>
+
 <section class="1">
 	<p>как тебя зовут</p>
-	<input type="text">
+	<input type="text" id="name">
 </section>
 <section class="2">
 	<p>Введите дату своего ближайшего дня рождения</p>
-	<input type="date" >
+	<input type="date" id="date">
 </section>
-<h1 class="show"></h1>
+<h1 class="show">;(</h1>
 
 <script>
-	var show = Backbone.Model.extend({
-    defaults: {
-      day : '2018-07-10T21:00:00.000Z'
-    },
-    initialize: function(){
+  $(function () {
+    var object = {};
 
-		}
+    _.extend(object, Backbone.Events)
+    var name = $('#name');
+    var date = $('#date');
 
-	})
+    object.on("show", function (name) {
+      $('.show').html('С днем Рождения ' + name.val());
+    });
+    object.on("hide", function () {
+      $('.show').html(';(');
+    });
+
+
+    name.on('keyup', function () {
+      if (date.val() == '2018-07-03' && name.val().length > 3) {
+        object.trigger('show', name);
+      } else {
+        object.trigger('hide');
+      }
+    });
+    date.on('change', function () {
+      if (date.val() == '2018-07-03' && name.val().length > 3) {
+        object.trigger('show', name);
+      } else {
+        object.trigger('hide');
+      }
+
+
+    })
+  })
 </script>
 
 </body>
